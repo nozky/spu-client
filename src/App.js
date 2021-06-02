@@ -10,7 +10,6 @@ import { fetchData } from './helpers/fetchData'
 import Loading from './components/Loading';
 import Btn from './components/Btn';
 
-import {  FiArrowUpCircle } from 'react-icons/fi'
 import {  CgMenuRound } from 'react-icons/cg'
 
 
