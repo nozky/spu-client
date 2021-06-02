@@ -1,0 +1,11 @@
+.navCloseBtn {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nav.show{
+  transform: translateY(0);
+}

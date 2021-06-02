@@ -1,0 +1,48 @@
+.login{
+  height: 100%;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .login-head{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 1.5em;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  gap: 0.8em;
+}
+
+.login form > div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login form div > input{
+  padding: 0.3em 1em;
+  width: 30ch;
+}
+
+.login button{
+  background-color: blue;
+  padding: 0.4em 1em;
+  font-size: larger;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
