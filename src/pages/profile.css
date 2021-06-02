@@ -105,6 +105,12 @@
 
 }
 
+.profile .footer{
+  width: 100%;
+  background-color: white;
+  font-size: larger;
+}
+
 
 @media screen and (min-width: 700px) {
   .profile{

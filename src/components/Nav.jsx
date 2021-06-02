@@ -22,7 +22,7 @@ const Nav = () => {
       <ul>
         <li><Link to="/">Map</Link></li>
         <li><Link to="/login">Profile</Link></li>
-        <li><Link to="/signup">SignUp</Link></li>
+        <li><Link to="/signup">Sign Up</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
       <Btn className={'navCloseBtn'} icon={ <CgCloseO /> }/>

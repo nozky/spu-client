@@ -151,7 +151,9 @@ const Profile = ( {location, ...rest} ) => {
               <button id="isDeleted" name="isDeleted" type="button" value={isDeleted} style={{color: 'red'}} onClick={()=> setIsDeleted(!isDeleted)} >{ isDeleted? "Undo Del" : "Delete" }</button>
           </div>
         
-          <Link to='/'>Back to Map</Link>
+          <div className='footer'>
+            <Link to='/'>Back to Map</Link>
+          </div>
 
         </form>
       </div>

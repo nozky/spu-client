@@ -65,10 +65,10 @@ const [ searchStr, setSearchStr ] = useState(null)
       <div className='signup-head'>
       <h2>Sign Up</h2>
       <p>Solar Power Philippines</p>
-        <div className='google-signin'>
+        {/* <div className='google-signin'>
           <p>Sign in with google</p>
           <button >Sign In</button>
-        </div>
+        </div> */}
       </div>
 
       <div className='map-wrapper'>
@@ -164,8 +164,11 @@ const [ searchStr, setSearchStr ] = useState(null)
               <button type='reset'>Clear</button>
           </div>
         
-          <p className='back'><Link to="/">Back to Map</Link></p>
         </form>
+
+        <div className='footer'>
+          <p className='back'><Link to="/">Back to Map</Link></p>
+        </div>
       </div>
       
 
