@@ -56,7 +56,7 @@ const Login = () => {
           </div>
 
           <div className='login-buttons'>
-            <button className="btn">Submit</button>
+            <button className="btn">Log In</button>
           </div>
         </form> 
 
@@ -64,7 +64,11 @@ const Login = () => {
           <Link to='/' >Back to Map</Link>
         </div>
 
-        
+        <div className='login-signup'>
+          <p>No Account yet? </p>
+          <p>Sign Up! It's free!</p>
+          <Link to='/' >Sign Up Now!</Link>
+        </div>
       
     </div>
   )

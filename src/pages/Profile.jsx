@@ -126,7 +126,7 @@ const Profile = ( {location, ...rest} ) => {
 
           <div>
             <label htmlFor="power">Power(kw)</label>
-            <input type="number" step="any" name='power' id='power' defaultValue={details.power} required placeholder=' (Number)'/>
+            <input type="number" step="any" name='power' id='power' defaultValue={details.power} required placeholder=' (Number: 0.000)'/>
           </div>
 
           <div>

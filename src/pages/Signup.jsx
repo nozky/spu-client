@@ -122,12 +122,12 @@ const [ searchStr, setSearchStr ] = useState(null)
 
           <div>
             <label htmlFor="name">Name</label>
-            <input type="text" name='name' id='name' required placeholder=" (System name)"/>
+            <input type="text" name='name' id='name' required placeholder=" (Any System Name )"/>
           </div>
 
           <div>
             <label htmlFor="power">Power(kw)</label>
-            <input type="number" step="any" name='power' id='power' required placeholder=' (Number)'/>
+            <input type="number" step="any" name='power' id='power' required placeholder=' (Number: 0.000 ex: 0.500 for watts)'/>
           </div>
 
           <div>

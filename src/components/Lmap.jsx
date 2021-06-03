@@ -24,15 +24,12 @@ const inactiveIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-
 const Lmap = ({spu}) => {
-
   
   // center map to philippines
   const [mapCenter, setMapCenter] = useState([12.8797,121.7740])
 
   useEffect(()=>{ setMapCenter([12.8797,121.7740]) },[])
-
 
   if( !Array.isArray( spu ) ){
     return(
@@ -63,9 +60,9 @@ const Lmap = ({spu}) => {
           <Marker key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
             <Popup>
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>{ user.details.name }</span>  <br /> 
-              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> { user.details.power } kw <br /> 
+              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> { user.details.power.toFixed(3) } kw <br /> 
               { user.details.info } <br />
-              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>Contact:</span> {user.email} <br />
+              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>Contact:</span> <a href={`mailto: ${user.email}`}>{user.email}</a> <br />
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>active:</span> {user.active.toString() }
             </Popup>
         </Marker>

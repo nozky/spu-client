@@ -25,7 +25,15 @@ function App() {
     app.current.querySelector('.menu').addEventListener('click',()=> app.current.querySelector('.nav').classList.add('show') )
    }
  })
-  
+ 
+ useEffect(()=>{
+   if( spu.length === 0 ){
+     setLoading( true )
+   }else{
+     setLoading( false )
+   }
+ },[spu])
+
   useEffect(()=>{
     fetchData().then( data => setSpu(data))
     setLoading( false )
@@ -35,7 +43,7 @@ function App() {
 
   return (
     <div className='app' ref={app}>
-     <Header />
+     <Header userCount={spu.length}/>
 
       <main>
         <Lmap spu={spu}/>

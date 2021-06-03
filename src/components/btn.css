@@ -9,3 +9,6 @@
 .nav.show{
   transform: translateY(0);
 }
+.navCloseBtn p{
+  display: none;
+}
