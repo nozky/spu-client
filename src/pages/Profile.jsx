@@ -45,13 +45,16 @@ const Profile = ( {location, ...rest} ) => {
     }
   },[currPosition,map])
 
+
   useEffect(()=>{
     if(isDeleted){
-      setDeleteMsg((current)=> current="This account will be deleted and you can no longer recover.")
+      setDeleteMsg("This account will be deleted after a few days and you can no longer recover.")
     }else{
       setDeleteMsg("")
     }
   }, [isDeleted])
+
+
 
   const getLatLng = (searchStr)=> {
    searchLatLng(searchStr).then( (result ) =>  {
@@ -147,7 +150,7 @@ const Profile = ( {location, ...rest} ) => {
           <div className='delete-message' style={{color: 'red'}}  >{deleteMsg}</div>
           <div className='submit-btn'>
               <button id="submit" name="submit" type='submit'>Update</button>
-              <button id="isActive" name="isActive" type="button" value={isActive} onClick={()=>setIsActive(!isActive)} >{ isActive? "active" : "deactivated" }</button>
+              <button id="isActive" name="isActive" type="button" value={isActive} onClick={()=>setIsActive(!isActive)} >{ isActive? "Deactivate" : "Activate" }</button>
               <button id="isDeleted" name="isDeleted" type="button" value={isDeleted} style={{color: 'red'}} onClick={()=> setIsDeleted(!isDeleted)} >{ isDeleted? "Undo Del" : "Delete" }</button>
           </div>
         
