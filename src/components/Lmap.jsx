@@ -60,7 +60,7 @@ const Lmap = ({spu}) => {
           <Marker key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
             <Popup>
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>{ user.details.name }</span>  <br /> 
-              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> { user.details.power.toFixed(3) } kw <br /> 
+              <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> {  user.details.power < 1? user.details.power.toFixed(3) : user.details.power.toFixed(0) } kw <br /> 
               { user.details.info } <br />
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>Contact:</span> <a href={`mailto: ${user.email}`}>{user.email}</a> <br />
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>active:</span> {user.active.toString() }

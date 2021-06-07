@@ -9,7 +9,7 @@ import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import { FcSearch } from 'react-icons/fc';
+import { FaSearchLocation } from 'react-icons/fa';
 import  solarActive from '../icons/solarActive.png'
  
 
@@ -75,8 +75,8 @@ const [ searchStr, setSearchStr ] = useState(null)
 
         <div className='searchPlace'>
           <label htmlFor="searchPlace">Search place</label>
-          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))}/>
-          <i onClick={()=> getLatLng(searchStr)}><FcSearch/></i>
+          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))} placeholder='Street City Province Country'/>
+          <i onClick={()=> getLatLng(searchStr)}><FaSearchLocation/></i>
         </div>
 
         <div className='form-map'>

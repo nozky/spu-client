@@ -79,7 +79,9 @@
   justify-content: flex-end;
   width: 100%;
   gap: 0.3em;
-  background-color: lightblue;
+  background-color: rgb(25, 72, 160);
+  color: white;
+  padding: 0.2em 0.3em;
 }
 
 .profile .searchPlace input{
@@ -124,5 +126,12 @@
 
   .profile .form-info{
     width: 100%;
+  }
+}
+
+@media screen and ( min-width: 1000px){
+  .profile .map-wrapper{
+    width: 50%;
+    min-height: 100%;
   }
 }

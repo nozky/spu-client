@@ -80,19 +80,24 @@
   justify-content: flex-end;
   width: 100%;
   gap: 0.3em;
-  background-color: lightblue;
+  background-color: rgb(25, 72, 160);
+  color: white;
+  padding: 0.2em 0.3em;
 }
 
 .signup .searchPlace input{
-  width: 25ch;
+  width: 30ch;
   border: none;
   border-bottom: 1px solid;
+  padding: 0 0.5em;
 }
 
 .signup .searchPlace i{
-  font-size: 1.5em;
+  font-size: 1.8em;
   cursor: pointer;
 }
+
+
 
 .signup .submit-btn{
   display: flex;
@@ -119,6 +124,14 @@
 
   .signup .map-wrapper{
     width: 60%;
+    min-height: 100%;
+  }
+}
+
+
+@media screen and ( min-width: 1000px){
+  .signup .map-wrapper{
+    width: 50%;
     min-height: 100%;
   }
 }

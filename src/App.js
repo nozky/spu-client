@@ -10,7 +10,7 @@ import { fetchData } from './helpers/fetchData'
 import Loading from './components/Loading';
 import Btn from './components/Btn';
 
-import {  CgMenuRound } from 'react-icons/cg'
+import {  FiSunrise } from 'react-icons/fi'
 
 
 function App() {
@@ -26,18 +26,18 @@ function App() {
    }
  })
  
- useEffect(()=>{
-   if( spu.length === 0 ){
-     setLoading( true )
-   }else{
-     setLoading( false )
-   }
- },[spu])
-
   useEffect(()=>{
     fetchData().then( data => setSpu(data))
     setLoading( false )
   },[])
+
+  useEffect(()=>{
+    if( spu.length === 0 ){
+      setLoading( true )
+    }else{
+      setLoading( false )
+    }
+  },[spu])
 
   if( loading === true ) return <Loading />
 
@@ -51,7 +51,7 @@ function App() {
 
      <Footer />
       <Nav />
-      <Btn  className={'menu'} icon={ <CgMenuRound/> } />
+      <Btn  className={'menu'} icon={ <FiSunrise /> } />
     </div>
   );
 }

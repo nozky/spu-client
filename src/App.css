@@ -15,12 +15,12 @@ main{
 
 
 .menu{
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 3em;
-  position: fixed;
   bottom: 5%;
   left: 3%;
   z-index: 1000;
@@ -40,8 +40,18 @@ main{
 }
 
 
-
 @keyframes blink {
   0% {opacity: 1;}
   50% {opacity: 0;}
+}
+
+
+@media screen and (min-width: 700px) {
+  .menu{
+    display: inline;
+    height: fit-content;
+    text-align: right;
+    top: 15%;
+    right: 5%;
+  }
 }

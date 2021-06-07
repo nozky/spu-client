@@ -10,13 +10,12 @@ import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import { FcSearch } from 'react-icons/fc';
+import { FaSearchLocation } from 'react-icons/fa';
 import  solarActive from '../icons/solarActive.png'
 
 const Profile = ( {location, ...rest} ) => {
 
   const { username, email, details, position, active, deleted } = location.userDetails
-
 
   const [ currPosition, setCurrPosition ] = useState({lat: position.lat, lng: position.lng})
   const [ zoom, setZoom ] = useState(8)
@@ -55,7 +54,6 @@ const Profile = ( {location, ...rest} ) => {
   }, [isDeleted])
 
 
-
   const getLatLng = (searchStr)=> {
    searchLatLng(searchStr).then( (result ) =>  {
     if(result){  
@@ -78,8 +76,8 @@ const Profile = ( {location, ...rest} ) => {
 
         <div className='searchPlace'>
           <label htmlFor="searchPlace">Search place</label>
-          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))}/>
-          <i onClick={()=> getLatLng(searchStr)}><FcSearch/></i>
+          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))} placeholder='Street City Province Country'/>
+          <i onClick={()=> getLatLng(searchStr)}><FaSearchLocation/></i>
         </div>
 
         <div className='form-map'>
