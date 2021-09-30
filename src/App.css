@@ -8,6 +8,12 @@
   height: 100%;
 }
 
+input{
+  border-radius: 3px;
+  margin: 0.3em 0;
+  padding: 3em;
+}
+
 main{
   width: 100%;
   height: 100%;
@@ -42,7 +48,7 @@ main{
 
 @keyframes blink {
   0% {opacity: 1;}
-  50% {opacity: 0;}
+  100% {opacity: 0;}
 }
 
 
