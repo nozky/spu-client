@@ -75,8 +75,7 @@ const Profile = ( {location, ...rest} ) => {
       <div className='map-wrapper'>
 
         <div className='searchPlace'>
-          <label htmlFor="searchPlace">Search place</label>
-          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))} placeholder='Street City Province Country'/>
+          <input type="text" name="searchPlace" id="searchPlace" className='searchPlace' onChange={e => setSearchStr((current => current = e.target.value))} placeholder='Search: Street City Province Country'/>
           <i onClick={()=> getLatLng(searchStr)}><FaSearchLocation/></i>
         </div>
 

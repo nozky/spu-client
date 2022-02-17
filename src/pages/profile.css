@@ -28,6 +28,7 @@
   width: 100%;
   height: 100%;
 }
+
 .profile .google-signin{
   display: flex;
   flex-direction: column;
@@ -41,7 +42,7 @@
   position: relative;
   background-color: lightblue;
   width: 100%;
-  height: 150px;
+  height: 200px;
 }
 
 .profile .leaflet-container{
@@ -64,13 +65,21 @@
 }
 
 .profile input{
-  padding: 0.2em;
+  padding: 0.5em;
+  border-width: 0.1em;
 }
 
 .profile .submit-btn{
-  padding: 1em 0;
+  padding: 1rem;
+  
 }
 
+.profile .submit-btn button{
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+}
 
 
 .profile .searchPlace{
@@ -79,13 +88,14 @@
   justify-content: flex-end;
   width: 100%;
   gap: 0.3em;
-  background-color: rgb(25, 72, 160);
+  background-color: #3c6fbd;
   color: white;
   padding: 0.2em 0.3em;
+  padding: 0.5em 0.3em;
 }
 
 .profile .searchPlace input{
-  width: 25ch;
+  width: 30ch;
   border: none;
   border-bottom: 1px solid;
 }
@@ -113,6 +123,19 @@
   font-size: larger;
 }
 
+.profile .footer a {
+  text-decoration: none;
+  border: 1px solid lightgray;
+  width: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  margin:  0 auto;
+}
+
+.profile .footer a:hover{
+  cursor: pointer;
+  background-color: lightgray;
+}
 
 @media screen and (min-width: 700px) {
   .profile{
