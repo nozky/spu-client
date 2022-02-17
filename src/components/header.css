@@ -1,8 +1,9 @@
 .header{
   width: 100%;
   padding: 0.5em 1em;
-  background-color: blue;
+  background-color: #3c6fbd;
   color: white;
+  box-shadow: 0 0 20px black;
 }
 
 .header .user-count{

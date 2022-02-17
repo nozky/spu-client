@@ -2,3 +2,8 @@
   width: 200px;
   height: 400px;
 } */
+
+.leaflet-pane .leaflet-marker-pane:hover .show-other{
+ visibility: visible;
+ position: absolute;
+}

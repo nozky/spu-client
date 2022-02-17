@@ -57,7 +57,7 @@ const Lmap = ({spu}) => {
         if( user.deleted === true) return null 
 
         return(
-          <Marker key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
+          <Marker  key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
             <Popup>
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>{ user.details.name }</span>  <br /> 
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> {  user.details.power < 1? user.details.power.toFixed(3) : user.details.power.toFixed(0) } kw <br /> 
