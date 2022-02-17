@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0.5em 1em;
-  background-color: lightblue;
+  padding: 1em;
   color: black;
 }
 
@@ -22,13 +21,17 @@
 .about a{
   color: red;
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid #00000056;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1em;
   width: 13ch;
-  padding: 0.2em;
+  padding: 5px;
   text-align: center;
+}
+
+.about .btn a:hover{
+  background-color: #d3d3d398;
 }
 
 .about .about-head{
@@ -44,4 +47,12 @@
   left: 0;
   padding: 0.5em 2em;
   text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  .about{
+    padding: 3em;
+    /* display: flex;
+    justify-content: center; */
+  }
 }

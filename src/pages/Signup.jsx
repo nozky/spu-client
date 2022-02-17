@@ -130,8 +130,8 @@ const [ searchStr, setSearchStr ] = useState(null)
           </div>
 
           <div>
-            <label htmlFor="info">More Info</label>
-            <textarea name="info" id="info" cols="40" rows="2" placeholder='(Optional)'></textarea>
+            <label htmlFor="info">More Information</label>
+            <textarea name="info" id="info" cols="40" rows="8" placeholder='(Optional)'></textarea>
           </div>
 
           <div>

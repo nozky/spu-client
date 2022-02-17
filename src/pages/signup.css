@@ -59,7 +59,7 @@
 }
 
 .signup input{
-  padding: 0.5em;
+  padding: 1em;
   border-width: 0.1em;
 }
 
@@ -151,7 +151,7 @@
 
 @media screen and ( min-width: 1000px){
   .signup .map-wrapper{
-    width: 50%;
+    width: 70%;
     min-height: 100%;
   }
 }

@@ -29,7 +29,7 @@ const Lmap = ({spu}) => {
   // center map to philippines
   const [mapCenter, setMapCenter] = useState([12.8797,121.7740])
 
-  useEffect(()=>{ setMapCenter([12.8797,121.7740]) },[])
+  // useEffect(()=>{ setMapCenter([12.8797,121.7740]) },[])
 
   if( !Array.isArray( spu ) ){
     return(
@@ -57,7 +57,7 @@ const Lmap = ({spu}) => {
         if( user.deleted === true) return null 
 
         return(
-          <Marker  key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
+          <Marker key={user._id} position={position} icon={ user.active? activeIcon : inactiveIcon  } >
             <Popup>
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>{ user.details.name }</span>  <br /> 
               <span style={{fontStyle:'italic', fontWeight: 'bold'}}>System power:</span> {  user.details.power < 1? user.details.power.toFixed(3) : user.details.power.toFixed(0) } kw <br /> 

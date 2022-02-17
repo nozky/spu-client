@@ -54,10 +54,10 @@ main{
 
 @media screen and (min-width: 700px) {
   .menu{
-    display: inline;
-    height: fit-content;
-    text-align: right;
+    display: block;
     top: 15%;
-    right: 5%;
+    left: 90%;
+    width: max-content;
+    height: max-content;
   }
 }

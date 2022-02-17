@@ -19,7 +19,7 @@ const About = () => {
         <p>Maintained by: A member of Solar Power Philippines</p>
       </div>
 
-      <div>
+      <div className='btn'>
         <p>Please email of any concern</p>
         <a href="mailto:spup2021@gmail.com?subject=Mail from Our Site">Send mail</a>
       </div>
@@ -30,7 +30,7 @@ const About = () => {
       </div>
 
       
-      <div>
+      <div className='btn'>
         <Link to='/'>Map</Link>
       </div>
     

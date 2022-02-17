@@ -130,8 +130,8 @@ const Profile = ( {location, ...rest} ) => {
           </div>
 
           <div>
-            <label htmlFor="info">More Info</label>
-            <textarea name="info" id="info" cols="40" rows="2" defaultValue={details.info}  placeholder='(Optional)'></textarea>
+            <label htmlFor="info">More Information</label>
+            <textarea name="info" id="info" cols="40" rows="8" defaultValue={details.info}  placeholder='(Optional)'></textarea>
           </div>
 
           <div>
@@ -150,15 +150,11 @@ const Profile = ( {location, ...rest} ) => {
               <button id="isActive" name="isActive" type="button" value={isActive} onClick={()=>setIsActive(!isActive)} >{ isActive? "Deactivate" : "Activate" }</button>
               <button id="isDeleted" name="isDeleted" type="button" value={isDeleted} style={{color: 'red'}} onClick={()=> setIsDeleted(!isDeleted)} >{ isDeleted? "Undo Del" : "Delete" }</button>
           </div>
-        
-          <div className='footer'>
-            <Link to='/'>Back to Map</Link>
-          </div>
-
         </form>
+        <div className='footer'>
+          <Link to='/'>Back to Map</Link>
+        </div>
       </div>
-      
-
     </div>
   )
 }
