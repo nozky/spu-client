@@ -27,37 +27,27 @@ main{
   justify-content: center;
   align-items: center;
   font-size: 3em;
-  bottom: 5%;
-  left: 3%;
+  bottom: 0;
+  right: 0;
+  padding: 1em 0.5em;
   z-index: 1000;
   cursor: pointer;
 }
 
-.menu i{
-  font-size: 1em;
-  text-align: center;
-}
-
 .menu p{
-  font-size: 18px;
+  font-size: 1rem;
   animation-name: blink;
   animation-duration: 3s ;
   animation-iteration-count: infinite;
 }
 
-
-@keyframes blink {
+/* @keyframes blink {
   0% {opacity: 1;}
   100% {opacity: 0;}
-}
+} */
 
-
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 500px) {
   .menu{
     display: block;
-    top: 15%;
-    left: 90%;
-    width: max-content;
-    height: max-content;
   }
 }

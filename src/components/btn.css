@@ -9,7 +9,26 @@
 .nav.show{
   transform: translateY(0);
 }
+
 .navCloseBtn p{
   display: none;
 }
 
+.menu .icon {
+  font-size: 1em;
+}
+
+.menu .icon svg{
+  display: block;
+}
+
+.menu .icon:hover, icon:active {
+  transform-origin: center;
+  animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform:  rotate(160deg );}
+    100% { transform:  rotate(360deg); }
+}
