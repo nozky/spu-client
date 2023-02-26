@@ -9,6 +9,6 @@ export const fetchData = async ()=> {
     })
     return await res.json()
   } catch (error) {
-    console.log( error )
+    console.log( 'Something went wrong on the server ->' , error )
   }
 }

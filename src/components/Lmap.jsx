@@ -30,7 +30,6 @@ const Lmap = ({ spu }) => {
   // center map to philippines
   const [mapCenter, setMapCenter] = useState([12.8797, 121.774]);
 
-  console.log(spu);
   if (!Array.isArray(spu)) {
     return (
       <div style={{ textAlign: "center", padding: "3em" }}>

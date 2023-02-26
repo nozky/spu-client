@@ -1,4 +1,4 @@
-.signup{
+.signup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,22 +9,23 @@
   overflow-y: scroll;
 }
 
-.signup .signup-head{
+.signup .signup-head {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.signup p{
+.signup p {
   text-align: center;
 }
 
-.signup .map-wrapper{
+.signup .map-wrapper {
   width: 100%;
   height: 100%;
 }
-.signup .google-signin{
+
+.signup .google-signin {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,14 +34,14 @@
 }
 
 
-.signup .form-map{
+.signup .form-map {
   position: relative;
   background-color: lightblue;
   width: 100%;
-  height: 200px;
+  height: 300px;
 }
 
-.signup .leaflet-container{
+.signup .leaflet-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,56 +49,56 @@
   left: 0;
 }
 
-.signup .form-info{
+.signup .form-info {
   padding-top: 1em;
 }
 
-.signup form > div{
+.signup form>div {
   display: flex;
   flex-direction: column;
   padding: 0.1em;
 }
 
-.signup input{
+.signup input {
   padding: 1em;
   border-width: 0.1em;
 }
 
-.signup .submit-btn{
+.signup .submit-btn {
   padding: 1rem;
 }
 
-.signup .submit-btn button{
+.signup .submit-btn button {
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
 }
 
-.signup .submit-btn button:hover{
+.signup .submit-btn button:hover {
   background-color: lightgray;
   cursor: pointer;
 }
 
-.signup .back{
+.signup .back {
   cursor: pointer;
   border: 1px solid lightgray;
-  width: fit-content;
+  width: max-content;
   padding: 0.5em 1em;
   border-radius: 5px;
-  margin:  0 auto;
+  margin: 0 auto;
 }
 
-.signup .back:hover{
+.signup .back:hover {
   cursor: pointer;
   background-color: lightgray;
 }
 
-.signup .back a{
+.signup .back a {
   color: red;
   text-decoration: none;
 }
 
-.signup .searchPlace{
+.signup .searchPlace {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -108,50 +109,55 @@
   padding: 0.5em 0.3em;
 }
 
-.signup .searchPlace input{
-  width: 30ch;
+.signup .searchPlace input {
+  width: 40ch;
   border: none;
   border-bottom: 1px solid;
   padding: 0.4em 0.5em;
 }
 
-.signup .searchPlace i{
+.signup .searchPlace input::placeholder {
+  color: rgba(255, 255, 255, 0.417);
+}
+
+.signup .searchPlace i {
   font-size: 1.8em;
   cursor: pointer;
 }
 
-.signup .submit-btn{
+.signup .submit-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1em;
 }
 
-.signup .submit-btn > button{
+.signup .submit-btn>button {
   width: 10ch;
 }
 
-.signup .footer{
+.signup .footer {
   background-color: white;
   font-size: larger;
 }
 
 
-@media screen and (min-width: 700px) {
-  .signup{
+@media screen and (min-width: 900px) {
+  .signup {
     font-size: 1rem;
+    padding: 1rem 8rem;
   }
 
-  .signup .map-wrapper{
-    width: 60%;
+  .signup .map-wrapper {
     min-height: 100%;
+
   }
 }
 
 
-@media screen and ( min-width: 1000px){
-  .signup .map-wrapper{
-    width: 70%;
+@media screen and (min-width: 1280px) {
+  .signup .map-wrapper {
     min-height: 100%;
+    padding: 1rem 14rem;
   }
 }

@@ -1,15 +1,12 @@
-.profile{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.profile {
   font-size: smaller;
-  padding: 1em;
-  height: 100%;
-  width: 100%;
-  overflow-y: scroll;
+  padding: 1rem;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
 }
 
-.profile .profile-head{
+.profile .profile-head {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,11 +14,7 @@
   margin: 1em;
 }
 
-.profile p{
-  text-align: center;
-}
-
-.profile .map-wrapper{
+.profile .map-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +22,7 @@
   width: 100%;
 }
 
-.profile .google-signin{
+.profile .google-signin {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,14 +31,14 @@
 }
 
 
-.profile .form-map{
+.profile .form-map {
   position: relative;
   background-color: lightblue;
   width: 100%;
-  height: 200px;
+  height: 300px;
 }
 
-.profile .leaflet-container{
+.profile .leaflet-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -53,36 +46,35 @@
   left: 0;
 }
 
-.profile .form-info{
+.profile .form-info {
   width: 100%;
   padding-top: 1em;
 }
 
-.profile form > div{
+.profile form>div {
   display: flex;
   flex-direction: column;
   padding: 0.1em;
 }
 
-.profile input{
+.profile input {
   padding: 1em;
   border-width: 0.1em;
 }
 
-.profile input[type="number"]{
+.profile input[type="number"] {
   padding: 1em;
 }
 
-.profile textarea{
+.profile textarea {
   padding: 1em;
 }
 
-.profile .submit-btn{
+.profile .submit-btn {
   padding: 1rem;
-  
 }
 
-.profile .submit-btn button{
+.profile .submit-btn button {
   cursor: pointer;
   padding: 0.5em 1em;
   border: none;
@@ -90,7 +82,7 @@
 }
 
 
-.profile .searchPlace{
+.profile .searchPlace {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -102,30 +94,34 @@
   padding: 0.5em 0.3em;
 }
 
-.profile .searchPlace input{
-  width: 30ch;
+.profile .searchPlace input {
+  width: 40ch;
   border: none;
   border-bottom: 1px solid;
+  color: white;
 }
 
-.profile .searchPlace i{
+.profile .searchPlace input::placeholder {
+  color: rgba(255, 255, 255, 0.363);
+}
+
+.profile .searchPlace i {
   font-size: 1.5em;
   cursor: pointer;
 }
 
-.profile .submit-btn{
+.profile .submit-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1em;
 }
 
-.profile .submit-btn > button{
+.profile .submit-btn>button {
   width: 10ch;
-
 }
 
-.profile .footer{
+.profile .footer {
   width: 100%;
   background-color: white;
   font-size: larger;
@@ -134,25 +130,34 @@
 .profile .footer a {
   text-decoration: none;
   border: 1px solid lightgray;
-  width: fit-content;
   padding: 0.5em 1em;
   border-radius: 5px;
-  margin:  0 auto;
+  margin: 0 auto;
 }
 
-.profile .footer a:hover{
+.profile .footer a:hover {
   cursor: pointer;
   background-color: lightgray;
 }
 
-@media screen and (min-width: 800px) {
-  .profile .map-wrapper{
-    width: 70%;
-    min-height: 100vh;
-    padding: 1em;
+@media screen and (min-width: 1028px) {
+  .profile {
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr; */
+    padding: 0 10rem;
+
   }
 
-  .profile .form-info{
-    width: 100%;
+  /* .profile .map-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding: 1em;
+    width: 70%;
   }
+
+  .profile .form-info {
+    width: 100%;
+    background-color: green; */
 }
