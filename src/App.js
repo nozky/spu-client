@@ -26,6 +26,7 @@ const  App = () => {
  })
  
   useEffect(()=>{
+    setLoading(true)
     async function getData() {
       const data = await fetchData()
       if ( data === undefined) {
