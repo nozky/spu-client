@@ -13,7 +13,7 @@ import { FaSearchLocation } from "react-icons/fa";
 import solarActive from "../icons/solarActive.png";
 
 const Profile = ({ location, ...rest }) => {
-  const { username, email, details, position, active, deleted } =
+  const { username, email, details, position, active, deleted, imageUrl } =
     location.userDetails;
 
   const [currPosition, setCurrPosition] = useState({
@@ -231,6 +231,7 @@ const Profile = ({ location, ...rest }) => {
               type="text"
               name="imageUrl"
               id="imageUrl"
+              defaultValue={imageUrl}
               placeholder="Paste a Image Url or Image Address"
             />
           </div>

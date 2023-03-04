@@ -20,17 +20,13 @@ const PopupDetails = ({ user }) => {
         </span>
       </p>
       <p>Active : {user.active ? "Yes" : "No"}</p>
-      <div className="picture">
-        <a
-          target="_blank"
-          href="https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29sYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29sYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            alt={user.title}
-          />
-        </a>
-      </div>
+      {user.imageUrl && (
+        <div className="picture">
+          <a target="_blank" rel="noreferrer" href={user.imageUrl}>
+            <img src={user.imageUrl} alt={user.title} />
+          </a>
+        </div>
+      )}
     </div>
   );
 };

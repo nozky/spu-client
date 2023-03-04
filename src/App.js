@@ -25,7 +25,6 @@ const  App = () => {
  })
  
   useEffect(()=>{
-    setLoading(true)
     async function getData() {
       const data = await fetchData()
       if ( data === undefined) {
@@ -35,13 +34,12 @@ const  App = () => {
         setSpu(data)
         setIsError(false)
       }
-      setLoading( false )
    }
     getData()
   },[])
 
   useEffect(()=>{
-    if( spu.lenght === 0 ){
+    if( spu.length === 0 ){
       setLoading( true )
     }else{
       setLoading( false )

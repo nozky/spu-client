@@ -3,7 +3,7 @@ import { update } from './update'
 export const submitHandleUpdate = async (e)=> {
   e.preventDefault()
  
-  const { username, email, password,rpassword, name, power, info, lat, lng, isActive, isDeleted   } = e.currentTarget
+  const { username, email, password,rpassword, name, power, info, lat, lng, isActive, isDeleted, imageUrl   } = e.currentTarget
 
   if( password.value !== rpassword.value ){
     alert('password does not match!')
@@ -25,7 +25,8 @@ export const submitHandleUpdate = async (e)=> {
     },
     active: isActive.value,
     deleted: isDeleted.value,
-    registeredDate: new Date()
+    registeredDate: new Date(),
+    imageUrl: imageUrl.value
   }
 
   const response = await  update(process.env.REACT_APP_BASE_API, data)

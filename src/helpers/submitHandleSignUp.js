@@ -3,7 +3,7 @@ import { submit } from './submit'
 export const submitHandleSignUp = (e)=> {
   e.preventDefault()
 
-  const { username, email, password,rpassword, name, power, info, lat, lng  } = e.currentTarget
+  const { username, email, password,rpassword, name, power, info, lat, lng, imageUrl  } = e.currentTarget
 
   if( password.value !== rpassword.value ){
     alert('password does not match!')
@@ -27,11 +27,11 @@ export const submitHandleSignUp = (e)=> {
     },
     active: true,
     deleted: false,
-    registeredDate: new Date()
+    registeredDate: new Date(),
+    imageUrl: imageUrl.value
   }
 
 
-  console.log( 'submitting data')
   submit(process.env.REACT_APP_BASE_API, data)
     .then( response => response.json())
     .then ( result => { 
