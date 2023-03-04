@@ -225,16 +225,6 @@ const Profile = ({ location, ...rest }) => {
             />
           </div>
 
-          <div>
-            <label htmlFor="name">Image Url / Image Address</label>
-            <input
-              type="text"
-              name="imageUrl"
-              id="imageUrl"
-              placeholder="Paste a Image Url or Image Address"
-            />
-          </div>
-
           <div className="delete-message" style={{ color: "red" }}>
             {deleteMsg}
           </div>

@@ -1,4 +1,4 @@
-.nav{
+.nav {
   position: relative;
   position: absolute;
   display: flex;
@@ -19,7 +19,7 @@
   gap: 2em;
 }
 
-.nav ul li{
+.nav ul li {
   list-style: none;
   font-size: 1.5em;
   cursor: pointer;
@@ -29,11 +29,12 @@
   padding: 0.5em 1em;
 }
 
-.nav ul li:hover{
+.nav ul li:hover {
   background-color: rgba(211, 211, 211, 0.212);
 }
 
-.nav ul li a{
+.nav ul li a {
+  display: block;
   color: white;
   text-decoration: none;
 }

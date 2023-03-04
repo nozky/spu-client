@@ -214,16 +214,6 @@ const Signup = () => {
             />
           </div>
 
-          <div>
-            <label htmlFor="name">Image Url / Image Address</label>
-            <input
-              type="text"
-              name="imageUrl"
-              id="imageUrl"
-              placeholder="Paste a Image Url or Image Address"
-            />
-          </div>
-
           <div className="submit-btn">
             <button type="submit">Submit</button>
             <button type="reset">Clear</button>
