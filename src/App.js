@@ -8,9 +8,8 @@ import Loading from './components/Loading';
 import Btn from './components/Btn';
 import ErrorMsg from './components/ErrorMsg';
 import { fetchData } from './helpers/fetchData'
-import './App.css';
-
 import {  BiCog } from 'react-icons/bi'
+import './App.css';
 
 const  App = () => {
 
@@ -55,17 +54,14 @@ const  App = () => {
   return (
     <div className='app' ref={appDiv}>
      <Header userCount={spu.length}/>
-
      <main>
         <Lmap spu={spu}/>
       </main> 
-
      <Nav />
      <Btn title="Menu" className={'menu'} icon={ <BiCog /> } />
      <Footer />
     </div>
   );
 }
-
 
 export default App;

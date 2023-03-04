@@ -5,6 +5,7 @@ import "./lmap.css";
 import solarActive from "../icons/solarActive.png";
 import solarInactive from "../icons/solarInactive.png";
 import * as L from "leaflet";
+import PopupDetails from "./PopupDetails";
 
 const activeIcon = new L.Icon({
   iconUrl: solarActive,
@@ -62,26 +63,7 @@ const Lmap = ({ spu }) => {
             icon={user.active ? activeIcon : inactiveIcon}
           >
             <Popup>
-              <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                {user.details.name}
-              </span>{" "}
-              <br />
-              <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                System power:
-              </span>{" "}
-              {user.details.power < 1
-                ? user.details.power.toFixed(3)
-                : user.details.power.toFixed(0)}{" "}
-              kw <br />
-              {user.details.info} <br />
-              <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                Contact:
-              </span>{" "}
-              <a href={`mailto: ${user.email}`}>{user.email}</a> <br />
-              <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                Active:
-              </span>{" "}
-              {user.active ? "Yes" : "No"}
+              <PopupDetails user={user} />
             </Popup>
           </Marker>
         );

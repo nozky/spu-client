@@ -1,4 +1,4 @@
-.leaflet-pane .leaflet-marker-pane:hover .show-other{
- visibility: visible;
- position: absolute;
+.leaflet-pane .leaflet-marker-pane:hover .show-other {
+  visibility: visible;
+  position: absolute;
 }
