@@ -127,6 +127,11 @@
   font-size: larger;
 }
 
+.profile .delete-message {
+  color: red;
+  text-align: center;
+}
+
 .profile .footer a {
   text-decoration: none;
   border: 1px solid lightgray;
@@ -142,22 +147,7 @@
 
 @media screen and (min-width: 1028px) {
   .profile {
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr; */
     padding: 0 10rem;
 
   }
-
-  /* .profile .map-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 0 auto;
-    padding: 1em;
-    width: 70%;
-  }
-
-  .profile .form-info {
-    width: 100%;
-    background-color: green; */
 }

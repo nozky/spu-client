@@ -1,13 +1,13 @@
-import React from 'react'
-import { MdSupervisorAccount } from 'react-icons/md'
-import './userCount.css'
+import React from "react";
+import { MdSupervisorAccount } from "react-icons/md";
+import "./userCount.css";
 
-const UserCount = ({userCount}) => {
+const UserCount = ({ userCount }) => {
   return (
-    <div className='user-count'>
-      <MdSupervisorAccount/> {userCount}
+    <div className="user-count">
+      Users: <MdSupervisorAccount /> {userCount}
     </div>
-  )
-}
+  );
+};
 
-export default UserCount
+export default UserCount;

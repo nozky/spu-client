@@ -1,38 +1,31 @@
 import React, { useState } from "react";
 import "./login.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { auth } from "../helpers/auth";
+import { useUserStore } from "../store/useStore";
 
 const Login = () => {
-  const [isAuth, setIsAuth] = useState(false);
-  const [userDetails, setUserDetails] = useState({});
-  const [userInfo, setUserInfo] = useState({});
+  const setUser = useUserStore((state) => state.setUser);
+  const user = useUserStore((state) => state.user);
+  const [userInput, setUserInput] = useState({});
+  const history = useHistory();
+
+  if (Object.keys(user).length !== 0) {
+    return <Redirect to="/profile" />;
+  }
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    const response = await auth(userInfo);
+    const response = await auth(userInput);
 
     if (response.ok) {
       const result = await response.json();
-      setUserDetails(result);
-      setIsAuth(true);
+      setUser(result);
+      history.push({ pathname: "/profile" });
     } else {
       alert("Invalid information! Please check and try again.");
     }
   };
-
-  if (isAuth) {
-    return (
-      <Redirect
-        to={{
-          pathname: "/profile",
-          state: isAuth,
-          userDetails: userDetails,
-          userInfo: userInfo,
-        }}
-      />
-    );
-  }
 
   return (
     <div className="login">
@@ -50,7 +43,7 @@ const Login = () => {
             name="username"
             placeholder="User Name (case sensitive)"
             onChange={(e) =>
-              setUserInfo((current) => ({
+              setUserInput((current) => ({
                 ...current,
                 username: e.target.value,
               }))
@@ -61,12 +54,13 @@ const Login = () => {
         <div>
           <label htmlFor="password">Password</label>
           <input
+            autoComplete="true"
             type="password"
             id="password"
             name="password"
             placeholder="Password (case sensitive)"
             onChange={(e) =>
-              setUserInfo((current) => ({
+              setUserInput((current) => ({
                 ...current,
                 password: e.target.value,
               }))

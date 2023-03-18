@@ -19,11 +19,18 @@ const PopupDetails = ({ user }) => {
           <a href={`mailto: ${user.email}`}>{user.email}</a>{" "}
         </span>
       </p>
-      <p>Active : {user.active ? "Yes" : "No"}</p>
-      {user.imageUrl && (
+      <p>
+        Active :{" "}
+        {user.active ? (
+          <span style={{ color: "green" }}>Yes</span>
+        ) : (
+          <span style={{ color: "red" }}>No</span>
+        )}
+      </p>
+      {user.pix && (
         <div className="picture">
-          <a target="_blank" rel="noreferrer" href={user.imageUrl}>
-            <img src={user.imageUrl} alt={user.title} />
+          <a target="_blank" rel="noreferrer" href={user.pix.secure_url}>
+            <img src={user.pix.secure_url} alt={user.title} />
           </a>
         </div>
       )}

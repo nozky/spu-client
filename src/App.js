@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-
 import Lmap from './components/Lmap'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -12,7 +11,6 @@ import {  BiCog } from 'react-icons/bi'
 import './App.css';
 
 const  App = () => {
-
   const appDiv = useRef()
   const [ loading, setLoading ] = useState(true)
   const [ spu, setSpu ] = useState([])
@@ -46,8 +44,8 @@ const  App = () => {
     }
   },[spu])
 
-  if( isError ) return <ErrorMsg msg='Something Went Wrong In The Server!' />
   if( loading ) return <Loading />
+  if( isError ) return <ErrorMsg msg='Something Went Wrong In The Server!' />
 
   return (
     <div className='app' ref={appDiv}>

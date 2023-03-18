@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { Link } from "react-router-dom";
-
 import { searchLatLng } from "../helpers/searchLatLng";
 import { submitHandleUpdate } from "../helpers/submitHandleUpdate";
-
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
 import { FaSearchLocation } from "react-icons/fa";
 import solarActive from "../icons/solarActive.png";
+import { useUserStore } from "../store/useStore";
+import ImageUpload from "../components/ImageUpload";
 
-const Profile = ({ location, ...rest }) => {
-  const { username, email, details, position, active, deleted, imageUrl } =
-    location.userDetails;
+const Profile = () => {
+  const user = useUserStore((state) => state.user);
+  const updateUser = useUserStore((state) => state.updateUser);
 
+  const {
+    username,
+    email,
+    details,
+    position,
+    active,
+    deleted,
+    pix: currentPix,
+  } = user;
+
+  const [updatedPix, setUpdatedPix] = useState(null);
   const [currPosition, setCurrPosition] = useState({
     lat: position.lat,
     lng: position.lng,
   });
-  const [zoom, setZoom] = useState(8);
-  const [map, setMap] = useState(null);
-  const [searchStr, setSearchStr] = useState(null);
   const [isActive, setIsActive] = useState(active);
   const [isDeleted, setIsDeleted] = useState(deleted);
+  const [zoom, setZoom] = useState(12);
+  const [map, setMap] = useState(null);
+  const [searchStr, setSearchStr] = useState(null);
   const [deleteMsg, setDeleteMsg] = useState("");
 
   const point = new L.Icon({
@@ -37,24 +47,24 @@ const Profile = ({ location, ...rest }) => {
     shadowSize: [41, 41],
   });
 
+  const onSubmitHandle = async (e) => {
+    const updatedUser = await submitHandleUpdate(e, currentPix, updatedPix);
+    updateUser({ ...updatedUser, currentPix });
+    alert("Updated Successfully!");
+  };
+
   useEffect(() => {
-    try {
-      if (map === null) return null;
-      setZoom(8);
-      map.flyTo(
-        { lat: currPosition.lat, lng: currPosition.lng },
-        map.getZoom(),
-        [currPosition]
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    if (map === null) return null;
+    setZoom(12);
+    map.flyTo({ lat: currPosition.lat, lng: currPosition.lng }, map.getZoom(), [
+      currPosition,
+    ]);
   }, [currPosition, map]);
 
   useEffect(() => {
     if (isDeleted) {
       setDeleteMsg(
-        "This account will be deleted after a few days and you can no longer recover."
+        "Your account will be permanently deleted in a few days, and there is no way to recover it."
       );
     } else {
       setDeleteMsg("");
@@ -62,11 +72,13 @@ const Profile = ({ location, ...rest }) => {
   }, [isDeleted]);
 
   const getLatLng = (searchStr) => {
-    searchLatLng(searchStr).then((result) => {
-      if (result) {
-        setCurrPosition((current) => (current = result));
-      }
-    });
+    searchLatLng(searchStr)
+      .then((result) => {
+        if (result) {
+          setCurrPosition(result);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -83,10 +95,11 @@ const Profile = ({ location, ...rest }) => {
             name="searchPlace"
             id="searchPlace"
             className="searchPlace"
+            placeholder="Search: Street City Province Country"
             onChange={(e) =>
               setSearchStr((current) => (current = e.target.value))
             }
-            placeholder="Search: Street City Province Country"
+            onKeyUp={(e) => e.key === "Enter" && getLatLng(searchStr)}
           />
           <i onClick={() => getLatLng(searchStr)}>
             <FaSearchLocation />
@@ -114,7 +127,7 @@ const Profile = ({ location, ...rest }) => {
           </MapContainer>
         </div>
 
-        <form onSubmit={(e) => submitHandleUpdate(e)} className="form-info">
+        <form onSubmit={onSubmitHandle} className="form-info">
           <div>
             <label htmlFor="username">Username</label>
             <input
@@ -140,16 +153,23 @@ const Profile = ({ location, ...rest }) => {
           <div>
             <label htmlFor="password">Password</label>
             <input
+              autoComplete="true"
               type="password"
               name="password"
               id="password"
-              defaultValue={location.userInfo.password}
+              defaultValue={user.password}
             />
           </div>
 
           <div>
             <label htmlFor="rpassword">Repeat Password</label>
-            <input type="password" name="rpassword" id="rpassword" required />
+            <input
+              autoComplete="true"
+              type="password"
+              name="rpassword"
+              id="rpassword"
+              required
+            />
           </div>
 
           <div>
@@ -225,20 +245,13 @@ const Profile = ({ location, ...rest }) => {
             />
           </div>
 
-          <div>
-            <label htmlFor="name">Image Url / Image Address</label>
-            <input
-              type="text"
-              name="imageUrl"
-              id="imageUrl"
-              defaultValue={imageUrl}
-              placeholder="Paste a Image Url or Image Address"
-            />
-          </div>
+          <ImageUpload
+            pix={updatedPix}
+            setPix={setUpdatedPix}
+            currentPix={currentPix.secure_url}
+          />
 
-          <div className="delete-message" style={{ color: "red" }}>
-            {deleteMsg}
-          </div>
+          <div className="delete-message">{deleteMsg}</div>
           <div className="submit-btn">
             <button id="submit" name="submit" type="submit">
               Update
@@ -248,7 +261,7 @@ const Profile = ({ location, ...rest }) => {
               name="isActive"
               type="button"
               value={isActive}
-              onClick={() => setIsActive(!isActive)}
+              onClick={() => setIsActive((c) => !c)}
             >
               {isActive ? "Deactivate" : "Activate"}
             </button>
@@ -258,7 +271,7 @@ const Profile = ({ location, ...rest }) => {
               type="button"
               value={isDeleted}
               style={{ color: "red" }}
-              onClick={() => setIsDeleted(!isDeleted)}
+              onClick={() => setIsDeleted((c) => !c)}
             >
               {isDeleted ? "Undo Del" : "Delete"}
             </button>
