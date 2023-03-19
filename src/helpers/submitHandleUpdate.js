@@ -24,7 +24,8 @@ export const submitHandleUpdate = async (e, pix, updatedPix)=> {
     },
     active:  isActive.value === 'true'? true : false,
     deleted: isDeleted.value === 'true'? true: false,
-    pix: pix === null? null : updatedPix
+    pix: pix === null? null : updatedPix,
+    currentPix: pix
   }
 
   const formData = new FormData()
