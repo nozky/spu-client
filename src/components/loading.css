@@ -1,7 +1,28 @@
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.loading .icon {
+  font-size: 5rem;
+  animation: rotation 2s infinite linear;
+}
+
+.loading p {
+  font-size: 2rem;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+
 }

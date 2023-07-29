@@ -1,13 +1,13 @@
 
 
-export const  submit = async (url,data)=> {
-  const res = await fetch(url + 'register',{
+export const  submit = async (formData)=> {
+  
+  const res = await fetch(process.env.REACT_APP_BASE_API + 'register',{
     method: "POST",
     headers: {
-      "Content-type" : "application/json",
       'Authorization': process.env.REACT_APP_API_KEY
     },
-    body: JSON.stringify(data)
+    body: formData
   })
 
   return res

@@ -1,4 +1,4 @@
-.header{
+.header {
   width: 100%;
   padding: 0.5em 1em;
   background-color: #3c6fbd;
@@ -6,6 +6,23 @@
   box-shadow: 0 0 20px black;
 }
 
-.header .user-count{
+.header .user-count {
   text-align: right;
+}
+
+.user-info {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.user-info p {
+  display: inline;
+  max-width: max-content;
+  color: white;
+}
+
+.user-info a {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  color: white;
 }

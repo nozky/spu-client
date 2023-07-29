@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
-
 import { submitHandleSignUp } from "../helpers/submitHandleSignUp";
 import { searchLatLng } from "../helpers/searchLatLng";
-
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
 import { FaSearchLocation } from "react-icons/fa";
 import solarActive from "../icons/solarActive.png";
-
-const point = new L.Icon({
-  iconUrl: solarActive,
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
+import ImageUpload from "../components/ImageUpload";
 
 const Signup = () => {
+  const point = new L.Icon({
+    iconUrl: solarActive,
+    shadowUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
   const [currPosition, setCurrPosition] = useState({
     lat: 12.8797,
     lng: 121.774,
@@ -30,38 +28,33 @@ const Signup = () => {
   const [zoom, setZoom] = useState(10);
   const [map, setMap] = useState(null);
   const [searchStr, setSearchStr] = useState(null);
+  const [userData, setUserData] = useState({});
+  const [pix, setPix] = useState(null);
+
+  const onChangeHandle = (e) => {
+    e.preventDefault();
+    setUserData((c) => ({ ...c, [e.target.name]: e.target.value }));
+  };
 
   useEffect(() => {
-    try {
-      navigator.geolocation.getCurrentPosition((data, err) => {
-        if (err) {
-          return null;
-        }
-        setZoom(8);
-        setCurrPosition(
-          (current) =>
-            (current = {
-              lat: data.coords.latitude,
-              lng: data.coords.longitude,
-            })
-        );
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    navigator.geolocation.getCurrentPosition((data, err) => {
+      if (err) {
+        return null;
+      }
+      setZoom(8);
+      setCurrPosition((current) => ({
+        ...current,
+        lat: data.coords.latitude,
+        lng: data.coords.longitude,
+      }));
+    });
   }, []);
 
   useEffect(() => {
-    try {
-      if (map === null) return null;
-      map.flyTo(
-        { lat: currPosition.lat, lng: currPosition.lng },
-        map.getZoom(),
-        [currPosition]
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    if (map === null) return null;
+    map.flyTo({ lat: currPosition.lat, lng: currPosition.lng }, map.getZoom(), [
+      currPosition,
+    ]);
   }, [currPosition, map]);
 
   const getLatLng = (searchStr) => {
@@ -86,10 +79,11 @@ const Signup = () => {
             name="searchPlace"
             id="searchPlace"
             className="searchPlace"
-            onChange={(e) =>
-              setSearchStr((current) => (current = e.target.value))
-            }
             placeholder="Search: Street City Province Country"
+            onChange={(e) => setSearchStr(e.target.value)}
+            onKeyUp={(e) => {
+              e.key === "Enter" && getLatLng(searchStr);
+            }}
           />
           <i onClick={() => getLatLng(searchStr)}>
             <FaSearchLocation />
@@ -117,15 +111,32 @@ const Signup = () => {
           </MapContainer>
         </div>
 
-        <form onSubmit={(e) => submitHandleSignUp(e)} className="form-info">
+        <form
+          className="form-info"
+          onSubmit={(e) =>
+            submitHandleSignUp(e, { ...userData, ...currPosition, pix })
+          }
+        >
           <div>
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" required />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              required
+              onChange={onChangeHandle}
+            />
           </div>
 
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" required />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              onChange={onChangeHandle}
+            />
           </div>
 
           <div>
@@ -136,12 +147,19 @@ const Signup = () => {
               id="password"
               required
               placeholder="Do not use your email password"
+              onChange={onChangeHandle}
             />
           </div>
 
           <div>
             <label htmlFor="rpassword">Repeat Password</label>
-            <input type="password" name="rpassword" id="rpassword" required />
+            <input
+              type="password"
+              name="rpassword"
+              id="rpassword"
+              required
+              onChange={onChangeHandle}
+            />
           </div>
 
           <div>
@@ -152,6 +170,7 @@ const Signup = () => {
               id="name"
               required
               placeholder=" (Any System Name )"
+              onChange={onChangeHandle}
             />
           </div>
 
@@ -164,6 +183,7 @@ const Signup = () => {
               id="power"
               required
               placeholder=" (Number: 0.000 ex: 0.500 for watts)"
+              onChange={onChangeHandle}
             />
           </div>
 
@@ -175,6 +195,7 @@ const Signup = () => {
               cols="40"
               rows="8"
               placeholder="(Optional)"
+              onChange={onChangeHandle}
             ></textarea>
           </div>
 
@@ -214,6 +235,11 @@ const Signup = () => {
             />
           </div>
 
+<<<<<<< HEAD
+=======
+          <ImageUpload id="pix" pix={pix} setPix={setPix} defaultPix={null} />
+
+>>>>>>> image-upload
           <div className="submit-btn">
             <button type="submit">Submit</button>
             <button type="reset">Clear</button>
