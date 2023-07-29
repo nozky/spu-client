@@ -1,5 +1,5 @@
-import React from "react";
-import "./popupDetails.css";
+import React from "react"
+import "./popupDetails.css"
 
 const PopupDetails = ({ user }) => {
   return (
@@ -19,9 +19,6 @@ const PopupDetails = ({ user }) => {
           <a href={`mailto: ${user.email}`}>{user.email}</a>{" "}
         </span>
       </p>
-<<<<<<< HEAD
-      <p>Active : {user.active ? "Yes" : "No"}</p>
-=======
       <p>
         Active :{" "}
         {user.active ? (
@@ -37,9 +34,8 @@ const PopupDetails = ({ user }) => {
           </a>
         </div>
       )}
->>>>>>> image-upload
     </div>
-  );
-};
+  )
+}
 
-export default PopupDetails;
+export default PopupDetails

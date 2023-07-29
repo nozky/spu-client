@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import "./profile.css";
-import { Link } from "react-router-dom";
-import { searchLatLng } from "../helpers/searchLatLng";
-import { submitHandleUpdate } from "../helpers/submitHandleUpdate";
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
-import * as L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { FaSearchLocation } from "react-icons/fa";
-import solarActive from "../icons/solarActive.png";
-import { useUserStore } from "../store/useStore";
-import ImageUpload from "../components/ImageUpload";
+import React, { useState, useEffect } from "react"
+import "./profile.css"
+import { Link } from "react-router-dom"
+import { searchLatLng } from "../helpers/searchLatLng"
+import { submitHandleUpdate } from "../helpers/submitHandleUpdate"
+import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet"
+import * as L from "leaflet"
+import "leaflet/dist/leaflet.css"
+import { FaSearchLocation } from "react-icons/fa"
+import solarActive from "../icons/solarActive.png"
+import { useUserStore } from "../store/useStore"
+import ImageUpload from "../components/ImageUpload"
 
 const Profile = () => {
-  const user = useUserStore((state) => state.user);
-  const updateUser = useUserStore((state) => state.updateUser);
+  const user = useUserStore((state) => state.user)
+  const updateUser = useUserStore((state) => state.updateUser)
 
   const {
     username,
@@ -23,19 +23,19 @@ const Profile = () => {
     active,
     deleted,
     pix: currentPix,
-  } = user;
+  } = user
 
-  const [updatedPix, setUpdatedPix] = useState(null);
+  const [updatedPix, setUpdatedPix] = useState(null)
   const [currPosition, setCurrPosition] = useState({
     lat: position.lat,
     lng: position.lng,
-  });
-  const [isActive, setIsActive] = useState(active);
-  const [isDeleted, setIsDeleted] = useState(deleted);
-  const [zoom, setZoom] = useState(12);
-  const [map, setMap] = useState(null);
-  const [searchStr, setSearchStr] = useState(null);
-  const [deleteMsg, setDeleteMsg] = useState("");
+  })
+  const [isActive, setIsActive] = useState(active)
+  const [isDeleted, setIsDeleted] = useState(deleted)
+  const [zoom, setZoom] = useState(12)
+  const [map, setMap] = useState(null)
+  const [searchStr, setSearchStr] = useState(null)
+  const [deleteMsg, setDeleteMsg] = useState("")
 
   const point = new L.Icon({
     iconUrl: solarActive,
@@ -45,41 +45,41 @@ const Profile = () => {
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
-  });
+  })
 
   const onSubmitHandle = async (e) => {
-    const updatedUser = await submitHandleUpdate(e, currentPix, updatedPix);
-    updateUser({ ...updatedUser, currentPix });
-    alert("Updated Successfully!");
-  };
+    const updatedUser = await submitHandleUpdate(e, currentPix, updatedPix)
+    updateUser({ ...updatedUser, currentPix })
+    alert("Updated Successfully!")
+  }
 
   useEffect(() => {
-    if (map === null) return null;
-    setZoom(12);
+    if (map === null) return null
+    setZoom(12)
     map.flyTo({ lat: currPosition.lat, lng: currPosition.lng }, map.getZoom(), [
       currPosition,
-    ]);
-  }, [currPosition, map]);
+    ])
+  }, [currPosition, map])
 
   useEffect(() => {
     if (isDeleted) {
       setDeleteMsg(
         "Your account will be permanently deleted in a few days, and there is no way to recover it."
-      );
+      )
     } else {
-      setDeleteMsg("");
+      setDeleteMsg("")
     }
-  }, [isDeleted]);
+  }, [isDeleted])
 
   const getLatLng = (searchStr) => {
     searchLatLng(searchStr)
       .then((result) => {
         if (result) {
-          setCurrPosition(result);
+          setCurrPosition(result)
         }
       })
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   return (
     <div className="profile">
@@ -245,11 +245,6 @@ const Profile = () => {
             />
           </div>
 
-<<<<<<< HEAD
-          <div className="delete-message" style={{ color: "red" }}>
-            {deleteMsg}
-          </div>
-=======
           <ImageUpload
             pix={updatedPix}
             setPix={setUpdatedPix}
@@ -257,7 +252,6 @@ const Profile = () => {
           />
 
           <div className="delete-message">{deleteMsg}</div>
->>>>>>> image-upload
           <div className="submit-btn">
             <button id="submit" name="submit" type="submit">
               Update
@@ -288,7 +282,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

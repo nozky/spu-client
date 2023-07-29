@@ -4,13 +4,7 @@ export const submitHandleSignUp = (e, userData)=> {
   e.preventDefault()
   const { username, email, password,rpassword, name, power, info, lat, lng, pix  } = userData
 
-<<<<<<< HEAD
-  const { username, email, password,rpassword, name, power, info, lat, lng, imageUrl  } = e.currentTarget
-
-  if( password.value !== rpassword.value ){
-=======
   if( password !== rpassword ){
->>>>>>> image-upload
     alert('password does not match!')
     return null
   }
@@ -31,11 +25,7 @@ export const submitHandleSignUp = (e, userData)=> {
     active: true,
     deleted: false,
     registeredDate: new Date(),
-<<<<<<< HEAD
-    imageUrl: imageUrl.value
-=======
     pix: pix
->>>>>>> image-upload
   }
 
   const formData = new FormData()
@@ -47,11 +37,7 @@ export const submitHandleSignUp = (e, userData)=> {
     }
   })
 
-<<<<<<< HEAD
-  submit(process.env.REACT_APP_BASE_API, data)
-=======
   submit(formData)
->>>>>>> image-upload
     .then( response => response.json())
     .then ( result => {
       if(result.name !=='success'){

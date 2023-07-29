@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import "./signup.css";
-import { Link } from "react-router-dom";
-import { submitHandleSignUp } from "../helpers/submitHandleSignUp";
-import { searchLatLng } from "../helpers/searchLatLng";
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
-import * as L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { FaSearchLocation } from "react-icons/fa";
-import solarActive from "../icons/solarActive.png";
-import ImageUpload from "../components/ImageUpload";
+import React, { useEffect, useState } from "react"
+import "./signup.css"
+import { Link } from "react-router-dom"
+import { submitHandleSignUp } from "../helpers/submitHandleSignUp"
+import { searchLatLng } from "../helpers/searchLatLng"
+import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet"
+import * as L from "leaflet"
+import "leaflet/dist/leaflet.css"
+import { FaSearchLocation } from "react-icons/fa"
+import solarActive from "../icons/solarActive.png"
+import ImageUpload from "../components/ImageUpload"
 
 const Signup = () => {
   const point = new L.Icon({
@@ -19,51 +19,51 @@ const Signup = () => {
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
-  });
+  })
 
   const [currPosition, setCurrPosition] = useState({
     lat: 12.8797,
     lng: 121.774,
-  });
-  const [zoom, setZoom] = useState(10);
-  const [map, setMap] = useState(null);
-  const [searchStr, setSearchStr] = useState(null);
-  const [userData, setUserData] = useState({});
-  const [pix, setPix] = useState(null);
+  })
+  const [zoom, setZoom] = useState(10)
+  const [map, setMap] = useState(null)
+  const [searchStr, setSearchStr] = useState(null)
+  const [userData, setUserData] = useState({})
+  const [pix, setPix] = useState(null)
 
   const onChangeHandle = (e) => {
-    e.preventDefault();
-    setUserData((c) => ({ ...c, [e.target.name]: e.target.value }));
-  };
+    e.preventDefault()
+    setUserData((c) => ({ ...c, [e.target.name]: e.target.value }))
+  }
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((data, err) => {
       if (err) {
-        return null;
+        return null
       }
-      setZoom(8);
+      setZoom(8)
       setCurrPosition((current) => ({
         ...current,
         lat: data.coords.latitude,
         lng: data.coords.longitude,
-      }));
-    });
-  }, []);
+      }))
+    })
+  }, [])
 
   useEffect(() => {
-    if (map === null) return null;
+    if (map === null) return null
     map.flyTo({ lat: currPosition.lat, lng: currPosition.lng }, map.getZoom(), [
       currPosition,
-    ]);
-  }, [currPosition, map]);
+    ])
+  }, [currPosition, map])
 
   const getLatLng = (searchStr) => {
     searchLatLng(searchStr).then((result) => {
       if (result) {
-        setCurrPosition((current) => (current = result));
+        setCurrPosition((current) => (current = result))
       }
-    });
-  };
+    })
+  }
 
   return (
     <div className="signup">
@@ -82,7 +82,7 @@ const Signup = () => {
             placeholder="Search: Street City Province Country"
             onChange={(e) => setSearchStr(e.target.value)}
             onKeyUp={(e) => {
-              e.key === "Enter" && getLatLng(searchStr);
+              e.key === "Enter" && getLatLng(searchStr)
             }}
           />
           <i onClick={() => getLatLng(searchStr)}>
@@ -235,11 +235,8 @@ const Signup = () => {
             />
           </div>
 
-<<<<<<< HEAD
-=======
           <ImageUpload id="pix" pix={pix} setPix={setPix} defaultPix={null} />
 
->>>>>>> image-upload
           <div className="submit-btn">
             <button type="submit">Submit</button>
             <button type="reset">Clear</button>
@@ -254,7 +251,7 @@ const Signup = () => {
       </div>
     </div>
     // end signup
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
