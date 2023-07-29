@@ -40,7 +40,6 @@ export const submitHandleSignUp = (e, userData)=> {
   submit(formData)
     .then( response => response.json())
     .then ( result => {
-      console.log( result ) 
       if(result.name !=='success'){
         console.log( result.name )
         alert(`Entry - ${JSON.stringify(result.keyValue)} alreay exist!`)
